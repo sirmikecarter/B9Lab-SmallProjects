@@ -23,8 +23,8 @@ contract('Splitter', function(accounts) {
 
 	it("should be owned by owner", function() {
 		return contract.alice({from:owner})
-		.then(function(_owner) {
-	assert.strictEqual(owner,_owner,"Contract is not owned by Owner.");
+		.then(function(_alice) {
+	assert.strictEqual(owner,_alice,"Contract is not owned by Owner.");
 
 		});
 		
