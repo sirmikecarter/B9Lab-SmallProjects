@@ -215,8 +215,66 @@
       "links": {},
       "address": "0x531c1be79e10525cf2729549bf70eb4f4c9d5277",
       "updated_at": 1503280788971
+    },
+    "1503331253724": {
+      "events": {
+        "0xbc2674b1c231352f5fe99c10d8db7182a2c0c857f496f1157968bdcbdb52bf3d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "msgSender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "recieverAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "contractAmount",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogExchange",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x38488b50098718292ee6202ee345a7d623fef07e",
+      "updated_at": 1503331352609
+    },
+    "1503344289293": {
+      "events": {
+        "0xbc2674b1c231352f5fe99c10d8db7182a2c0c857f496f1157968bdcbdb52bf3d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "msgSender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "recieverAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "contractAmount",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogExchange",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x539f80bd726c1815c82135dfbab03cf457c6c003",
+      "updated_at": 1503344322162
     }
   },
   "schema_version": "0.0.5",
-  "updated_at": 1503280788971
+  "updated_at": 1503344322162
 }
