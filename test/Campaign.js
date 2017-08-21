@@ -7,7 +7,9 @@ contract('Campaign', function(accounts) {
 	var duration = 10;
 	var expectedDeadline;
 
-	owner = accounts[0];
+	var owner = accounts[0];
+	var funder1 = accounts[1];   var contribution1 = 1;
+	var funder2 = accounts[2];   var contribution2 = 10;
 
 
 	beforeEach(function() {
@@ -40,5 +42,46 @@ contract('Campaign', function(accounts) {
 		});
 		
 	});
+
+	it("should process contributions", function() {
+		var fundsRaised;
+		var funder1Contribution;
+		var funder2Contribution;
+			return contract.contribute({from: funder1, value: contribution1})
+			.then(function(txt) {
+				return contract.contribute({from: funder2, value: contribution2})
+			.then(function(txt) {
+				return contract.fundsRaised({from: owner});
+			})
+			.then(function(_raised) {
+				fundsRaised = _raised;
+				return contract.funderStructs(0,{from: owner});
+			})
+			.then(function(_funder1) {
+				funder1Contribution = _funder1[1].toString(10);
+				return contract.funderStructs(1, {from: owner});
+			})
+			.then(function(_funder2) {
+				funder2Contribution = _funder2[1].toString(10);
+				assert.equal(fundsRaised.toString(10), contribution1 + contribution2, "Funds raised is incorrect.");
+				assert.equal(funder1Contribution, contribution1, "Funder 1's contribution was not tracked.");
+				assert.equal(funder2Contribution, contribution2, "Funder 2's contribution was not tracked.");
+				return contract.isSuccess({from: owner});
+			})
+			.then(function(_isSuccess) {
+				assert.strictEqual(_isSuccess,false, "Project was declared success early.")
+				return contract.hasFailed({from: owner});
+			})
+			.then(function(_hasFailed) {
+				assert.strictEqual(_hasFailed, false, "Project was declared failed early.")
+			});
+		});
+
+
+	});
+
+
+
+
 
 });

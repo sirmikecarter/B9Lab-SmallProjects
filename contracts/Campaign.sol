@@ -40,7 +40,7 @@ contract Campaign {
     }
 
 
-    function contribute() public payable onlyMe() returns(bool success) {
+    function contribute() public payable returns(bool success) {
         
         if(msg.value==0) revert();
         if(isSuccess()) revert();
