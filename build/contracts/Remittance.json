@@ -1,0 +1,222 @@
+{
+  "contract_name": "Remittance",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "deadline",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "inputHash1",
+          "type": "bytes32"
+        },
+        {
+          "name": "inputHash2",
+          "type": "bytes32"
+        }
+      ],
+      "name": "enterHashCodes",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "killMe",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "duration",
+          "type": "uint256"
+        },
+        {
+          "name": "recieverAdd",
+          "type": "address"
+        }
+      ],
+      "name": "exchangeShop",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": true,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "verifyhash1",
+          "type": "bytes32"
+        },
+        {
+          "name": "verifyhash2",
+          "type": "bytes32"
+        },
+        {
+          "name": "contractOwner",
+          "type": "address"
+        }
+      ],
+      "name": "verifyFunds",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "fee",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "exchangeShopDetails",
+      "outputs": [
+        {
+          "name": "recieverAddress",
+          "type": "address"
+        },
+        {
+          "name": "recieverAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "deadline",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "contractAddress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "msgSender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "recieverAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "contractAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "LogExchange",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x6060604052341561000f57600080fd5b5b60008054600160a060020a03338116600160a060020a0319928316179092556501176592e0006003556001805430909316929091169190911790555b5b6105228061005c6000396000f3006060604052361561007d5763ffffffff60e060020a60003504166329dcb0cf81146100825780634844efaf146100a75780638da5cb5b146100d4578063b603cd8014610103578063cb6f6f1a14610118578063d4a0601214610143578063ddca3f431461017c578063ec666944146101a1578063f6b4dfb4146101f6575b600080fd5b341561008d57600080fd5b610095610225565b60405190815260200160405180910390f35b34156100b257600080fd5b6100c060043560243561022b565b604051901515815260200160405180910390f35b34156100df57600080fd5b6100e7610286565b604051600160a060020a03909116815260200160405180910390f35b341561010e57600080fd5b610116610295565b005b6100c0600435600160a060020a03602435166102bd565b604051901515815260200160405180910390f35b341561014e57600080fd5b6100c0600435602435600160a060020a0360443516610389565b604051901515815260200160405180910390f35b341561018757600080fd5b610095610459565b60405190815260200160405180910390f35b34156101ac57600080fd5b6101c0600160a060020a036004351661045f565b6040518084600160a060020a0316600160a060020a03168152602001838152602001828152602001935050505060405180910390f35b341561020157600080fd5b6100e761048a565b604051600160a060020a03909116815260200160405180910390f35b60025481565b6000610235610499565b83836040519182526020820152604090810190519081900390208152600480546001810161026383826104ab565b916000526020600020900160005b508290815190555060019250505b5092915050565b600054600160a060020a031681565b60005433600160a060020a039081169116146102ad57fe5b600054600160a060020a0316ff5b565b60003415156102cb57600080fd5b33600160a060020a0390811660009081526005602052604090208054600160a060020a0319169184169190911790556002345b33600160a060020a038116600090815260056020526040908190209390920460018401554386016002909301929092557fbc2674b1c231352f5fe99c10d8db7182a2c0c857f496f1157968bdcbdb52bf3d91908490349051600160a060020a039384168152919092166020820152604080820192909252606001905180910390a15060015b92915050565b600083836040519182526020820152604090810190519081900390206004805460009081106103b457fe5b906000526020600020900160005b5054146103ce57600080fd5b600160a060020a0380831660009081526005602052604090819020805460019091015492169180156108fc029151600060405180830381858888f19350505050151561041957600080fd5b81600160a060020a03166108fc6003549081150290604051600060405180830381858888f19350505050151561044e57600080fd5b5060015b9392505050565b60035481565b600560205260009081526040902080546001820154600290920154600160a060020a03909116919083565b600154600160a060020a031681565b60206040519081016040526000815290565b8154818355818115116104cf576000838152602090206104cf9181019083016104d5565b5b505050565b6104f391905b808211156104ef57600081556001016104db565b5090565b905600a165627a7a723058206f4f8a8cfb441f8df103ead89f1550d76f0e6174f58d8ff82d0cc483d2628d740029",
+  "networks": {
+    "1503280387528": {
+      "events": {
+        "0xbc2674b1c231352f5fe99c10d8db7182a2c0c857f496f1157968bdcbdb52bf3d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "msgSender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "recieverAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "contractAmount",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogExchange",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x44b09bd8d0b52486ad5484dca914661db7625fc1",
+      "updated_at": 1503280595620
+    }
+  },
+  "schema_version": "0.0.5",
+  "updated_at": 1503280595620
+}

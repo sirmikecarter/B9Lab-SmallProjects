@@ -1,0 +1,197 @@
+{
+  "contract_name": "Splitter",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getBalance",
+      "outputs": [
+        {
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "getAliceBalance",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "getCarolBalance",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "sendWei",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": true,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "carol",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "killMe",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "bob",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "getBobBalance",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "alice",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_bob",
+          "type": "address"
+        },
+        {
+          "name": "_carol",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "receiver1",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "receiver2",
+          "type": "address"
+        }
+      ],
+      "name": "LogSplitAmount",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x6060604052341561000f57600080fd5b60405160408061042483398101604052808051919060200180519150505b60008054600160a060020a03338116600160a060020a0319928316179092556001805485841690831617905560028054928416929091169190911790555b50505b6103a78061007d6000396000f3006060604052361561007d5763ffffffff60e060020a60003504166312065fe0811461008257806325c4dc3c146100a757806357903b0b146100cc57806357bce8b0146100f15780638b930f151461010d578063b603cd801461013c578063c09cec7714610151578063f1a16f6814610180578063fb47e3a2146101a5575b600080fd5b341561008d57600080fd5b6100956101d4565b60405190815260200160405180910390f35b34156100b257600080fd5b6100956101e3565b60405190815260200160405180910390f35b34156100d757600080fd5b6100956101f4565b60405190815260200160405180910390f35b6100f9610205565b604051901515815260200160405180910390f35b341561011857600080fd5b610120610315565b604051600160a060020a03909116815260200160405180910390f35b341561014757600080fd5b61014f610324565b005b341561015c57600080fd5b61012061034c565b604051600160a060020a03909116815260200160405180910390f35b341561018b57600080fd5b61009561035b565b60405190815260200160405180910390f35b34156101b057600080fd5b61012061036c565b604051600160a060020a03909116815260200160405180910390f35b600160a060020a033016315b90565b600054600160a060020a0316315b90565b600254600160a060020a0316315b90565b6000805433600160a060020a0390811691161461022157600080fd5b34151561022d57600080fd5b600154600160a060020a03166108fc6002345b049081150290604051600060405180830381858888f19350505050151561026657600080fd5b60028054600160a060020a0316906108fc90345b049081150290604051600060405180830381858888f1935050505015156102a057600080fd5b6001546002547f06db731693593acc083dff79ce1fcec079345d6a9523bc1b715f844092cb0d579134913391600160a060020a039081169116604051938452600160a060020a039283166020850152908216604080850191909152911660608301526080909101905180910390a15060015b90565b600254600160a060020a031681565b60005433600160a060020a0390811691161461033c57fe5b600054600160a060020a0316ff5b565b600154600160a060020a031681565b600154600160a060020a0316315b90565b600054600160a060020a0316815600a165627a7a723058205a91733220fa530c5d9de13d01854e67283899d4298203be5b4fe6ae6ad061680029",
+  "networks": {
+    "1503280387528": {
+      "events": {
+        "0x06db731693593acc083dff79ce1fcec079345d6a9523bc1b715f844092cb0d57": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "receiver1",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "receiver2",
+              "type": "address"
+            }
+          ],
+          "name": "LogSplitAmount",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x4b3d07016fa6dda112547ff73a08e8fbc054fc49",
+      "updated_at": 1503280595630
+    }
+  },
+  "schema_version": "0.0.5",
+  "updated_at": 1503280595630
+}
