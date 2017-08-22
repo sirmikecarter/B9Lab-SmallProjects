@@ -9,18 +9,13 @@ contract Remittance {
     event LogExchange(address msgSender, address recieverAddress, uint contractAmount);
     
     struct ExchangeShopDetails {
+        address creatorAddress;
         address recieverAddress;
         uint recieverAmount;
         uint deadline;
     }
-    
-    struct HashCodes {
-        bytes32 theHash;
-    }
-    
-    HashCodes[] private hashCodes;
-    
-    mapping(address=>ExchangeShopDetails) public exchangeShopDetails;
+
+    mapping(bytes32=>ExchangeShopDetails) private exchangeShopDetails;
 
     function Remittance(){
         owner = msg.sender;
@@ -28,22 +23,17 @@ contract Remittance {
         contractAddress = this;
         
     }
-    
-    function enterHashCodes(bytes32 inputHash1,bytes32 inputHash2) public returns (bool success) {
-        
-         HashCodes memory newCodes;
-         newCodes.theHash = keccak256(inputHash1,inputHash2);
-         hashCodes.push(newCodes);
-         return true;
-    }
 
-    function exchangeShop(uint duration, address recieverAdd) public payable returns (bool success) {
+    function exchangeShop(bytes32 inputHash1,bytes32 inputHash2, uint duration, address recieverAdd) public payable returns (bool success) {
          
          if(msg.value== 0) revert();
-         
-         exchangeShopDetails[msg.sender].recieverAddress = recieverAdd;
-         exchangeShopDetails[msg.sender].recieverAmount = msg.value/2; //Local Currency
-         exchangeShopDetails[msg.sender].deadline = block.number+duration;
+        
+         ExchangeShopDetails memory newTransfer;
+         newTransfer.creatorAddress = msg.sender;
+         newTransfer.recieverAddress = recieverAdd;
+         newTransfer.recieverAmount = msg.value/2; //Local Currency
+         newTransfer.deadline = block.number+duration;
+         exchangeShopDetails[keccak256(inputHash1,inputHash2)] = newTransfer;
          
          LogExchange(msg.sender, recieverAdd, msg.value );
 
@@ -52,8 +42,10 @@ contract Remittance {
 
     function verifyFunds(bytes32 verifyhash1, bytes32 verifyhash2, address contractOwner) public returns (bool success) {
        
-        require(hashCodes[0].theHash == keccak256(verifyhash1,verifyhash2));
-        exchangeShopDetails[contractOwner].recieverAddress.transfer(exchangeShopDetails[contractOwner].recieverAmount);
+       ExchangeShopDetails memory toVerify = exchangeShopDetails[keccak256(verifyhash1,verifyhash2)];
+        require(toVerify.recieverAmount > 0);
+        require(contractOwner == toVerify.creatorAddress);
+        toVerify.recieverAddress.transfer(toVerify.recieverAmount);
         contractOwner.transfer(fee);
         return true;
     }

@@ -258,8 +258,42 @@
       "links": {},
       "address": "0xcb2264f68370542c501975cd9a2f6dc556d3b354",
       "updated_at": 1503347291306
+    },
+    "1503418741944": {
+      "events": {
+        "0x06db731693593acc083dff79ce1fcec079345d6a9523bc1b715f844092cb0d57": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "receiver1",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "receiver2",
+              "type": "address"
+            }
+          ],
+          "name": "LogSplitAmount",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x0878baad4f0f053031b60fad74d478fe447c3e41",
+      "updated_at": 1503418769891
     }
   },
   "schema_version": "0.0.5",
-  "updated_at": 1503347291306
+  "updated_at": 1503418769891
 }
